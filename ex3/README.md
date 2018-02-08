@@ -20,8 +20,8 @@ It includes the following files:
 ``````
 This exercise builds off of Exercise 2 and has the following changes:
 
-- user.class.php is now an<i>abstract</i> class
-- All classes in the<i>classes</i> folder are now autoloaded with the 
+- user.class.php is now an <i>abstract</i> class
+- All classes in the <i>classes</i> folder are now autoloaded with the 
   <b>spl_autoload_register</b> magic method
 - There is a new static method <i>bonusCheckCalc()</i> which displays
 the amount of bonus an administrative user gets over a regular user. This
