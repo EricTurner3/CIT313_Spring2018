@@ -3,12 +3,17 @@
 class BlogController extends Controller{
 	
 	public $postObject;
+    public $userObject;
    
    	public function view($pID){
 	   
 		$this->postObject = new Post();
 		$post = $this->postObject->getPost($pID);	    
 	  	$this->set('post',$post);
+
+        $this->userObject = new User();
+        $isAdmin = $this->userObject->isAdmin();
+        $this->set('isAdmin',$isAdmin);
 	   
    	}
 	
