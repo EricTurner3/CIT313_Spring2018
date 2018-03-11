@@ -6,6 +6,7 @@ class LoginController extends Controller{
     protected $userObject;
     public $login_success;
 
+
     public function do_login(){
         $this->userObject = new User();
 
@@ -22,6 +23,10 @@ class LoginController extends Controller{
             $this->set("login_error","Invalid email or password");
         }
 
+
+    }
+    public function logout(){
+        unset($_SESSION["uID"]);
 
     }
 

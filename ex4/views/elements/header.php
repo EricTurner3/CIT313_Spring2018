@@ -48,23 +48,20 @@ $this->userObject = new User();
                     <li><a href="<?php echo BASE_URL?>">Home</a></li>
                     <li><a href="<?php echo BASE_URL?>blog/">Blog</a></li>
                     <li><a href="<?php echo BASE_URL?>members">Members</a></li>
-                    <?php
 
-
-                    if($this->userObject->isAdmin()){
-                        echo '<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Blog Admin Options
-                                    <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="'.BASE_URL.'addpost/">Add Post</a></li>
-                                        </ul>
-                              </li>';
-                    }
-                    ?>
                 </ul>
                 <?php
                 if(isset($_SESSION["uID"])){
-                    echo '<ul class="nav" style="float:right; margin: 0 -10px 0 0;"><li><a>'. $this->userObject->getUserName().'</a></li></ul>';
+                    echo '<ul class="nav" style="float:right; margin: 0 -10px 0 0;"><li class="nav" >
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">'. $this->userObject->getUserName().'
+                                    <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">';
+                                        if($this->userObject->isAdmin()){
+                                            echo '<li><a href="'.BASE_URL.'addpost/">Add Post</a></li>';
+                                        }
+                                        echo '<li><a href="'.BASE_URL.'login/logout">Logout</a></li>';
+                                        echo '</ul>
+                              </li></ul>';
                 }
                 else{
                     echo '<ul class="nav" style="float:right; margin: 0 -10px 0 0;">';
