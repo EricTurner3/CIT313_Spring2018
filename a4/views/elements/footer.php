@@ -41,6 +41,13 @@ $this->userObject = new User();
         }
     ?>
 <script>
+    $href = "<?php echo BASE_URL?>ajax/get_weather/?zip=";
+    $("#zip").bind("change paste keyup", function() {
+        $zip = $(this).val();
+        $url = $href + $zip;
+        $('#btnlink').attr('href', $url);
+    });
+
     $(document).ready(function(){
       $('.post-loader').click(function(event){
           event.preventDefault();
@@ -55,6 +62,19 @@ $this->userObject = new User();
               }
           });
       });
+
+        $('.weather-loader').click(function(event){
+            event.preventDefault();
+            var el = $(this);
+
+            $.ajax({
+                url:el.attr('href'),
+                type: 'GET',
+                success: function(data){
+                    $('#weatherbody').html(data);
+                }
+            });
+        });
 
     });
 

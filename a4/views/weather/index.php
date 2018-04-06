@@ -1,15 +1,16 @@
 <?php include('./views/elements/header.php');?>
 
 <div class="container" id="wx">
-    <form id="weatherget" method="post" action="<?php echo BASE_URL?>weather/getresults">
+    <form id="weatherget" onkeypress="return event.keyCode != 13;">
         <label for="zip">Enter your Zip Code:</label>
         <input id="zip" name="zip" placeholder="<?php echo $zip;?>">
-        <input class="weather-loader" type="submit" value="Get Weather">
+        <div style="margin-top:15px;"><a id='btnlink' href="<?php echo BASE_URL?>ajax/get_weather/?zip=" class="btn weather-loader">Get Weather</a></div>
+
     </form>
 </div>
 
 
-<div class="container">
+<div class="container" id="weatherbody">
 	<div class="page-header">
     <h1> Weather for <?php echo $current->city['name']; ?> (<?php echo $zip; ?>)</h1>
 
