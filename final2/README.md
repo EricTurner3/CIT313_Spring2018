@@ -1,7 +1,7 @@
-Assignment 5 - Final Project Part 1
+Assignment 5 - Final Project Part 2
 ==========
 
-This exercise added on to Assignment 4
+This exercise added on to Final Part 1
 
 
 ```
